@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 2%;
+    padding: 2%;
+    background-color: rgb(243, 194, 134);
+    border: 20px solid transparent;
+    box-sizing: border-box;
+    box-shadow: 0 0 30px rgba(139, 69, 19, 0.7);
+}
+
+#backToGame {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: rgb(139, 64, 18);
+    color: #fff;
+    border-radius: 5px;
+    user-select: none;
+}
+
+#backToGame:hover {
+    background-color: #97552d;
+    
+}
+
+
+h1 {
+    text-align: center;
+}
+
+.rules {
+    margin-top: 20px;
+}
+
+.ruleSection {
+    margin-bottom: 20px;
+}
+
+.ruleTitle {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.ruleContent {
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(139, 69, 19, 0.5);
+    font-size: 16px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 7px;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+    border-radius: 10px;
+}
+
+th {
+    background-color: rgb(139, 64, 18);
+    color: white;
+}
+
+tr {
+    background-color: bisque;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

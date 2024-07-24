@@ -1,0 +1,482 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-image: url(../src/field/ash-3200-mm-architextures.png);
+    background-size: 40%;
+}
+
+.card {
+    height: 200px;
+    width: 120px;
+    margin: 5px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0);
+    /* Увеличили время анимации и добавили ease для плавности */
+}
+
+.card:not(.field .card):hover {
+    transform: translateY(-10px);
+    filter: brightness(1);
+    box-shadow: 0 0 20px rgba(16, 16, 3, 0.6);
+}
+
+.main {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.statsDiv {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#myScore, #enScore {
+    flex: 1;
+    text-align: left;
+}
+
+#selectedSuit {
+    flex: 1;
+    text-align: center;
+}
+
+#suitIcon {
+    font-size: 28px;
+}
+
+#selectedSuit {
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #3463db;
+    transition: 0.35s, color 0.35s;
+    user-select: none;
+}
+
+#myScore{
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px 0px 0px 8px;
+    color: #ffffff;
+    background-color: #3463db;
+    transition:0.35s, color 0.35s;
+    user-select: none;
+}
+
+
+#enScore {
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0px 8px 8px 0px;
+    color: #ffffff;
+    background-color: #3463db;
+    transition:0.35s, color 0.35s;
+    user-select: none;
+}
+
+
+.buttonDiv {
+    text-align: center;
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fieldDiv {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.myHend {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.centerCard {
+    flex-basis: 20%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-self: center;
+}
+
+.fieldCards {
+    display: flex;
+    flex-direction: row;
+}
+
+.enHend {
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    flex-basis: 40%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.suitChoosing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.modalContent p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+#select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.saveYourChoice {
+    background-color: #3463db;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.saveYourChoice:hover {
+    background-color: #2b54bc;
+}
+.startButtons {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+}
+
+.mainButton {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #3463db;
+    transition: 0.35s, color 0.35s;
+    user-select: none;
+}
+
+#whooseTurn,
+#myButtonTakeSeven,
+#enButtonTakeSeven {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #3463db;
+    transition: 0.35s, color 0.35s;
+    user-select: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+
+.mainStartButton {
+    padding: 5%;
+    margin: 1%;
+    width: 70%;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #ffffff;
+    background-color: #3463db;
+    transition:0.35s, color 0.35s;
+    user-select: none;
+}
+
+.mainButton:hover {
+    background-color: #ffffff;
+    color: #3463db;
+}
+
+
+.modalStart {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modalContentStart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+
+.rulesList {
+    padding: 4%;
+}
+
+.closeModal {
+    position: absolute;
+    font-size: 150%;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+
+
+
+#cardBackUrl {
+    background-image: url('../src/deck/card_back.png');
+}
+
+#card60 {
+    background-image: url('../src/deck/card_6_0.png');
+}
+
+#card70 {
+    background-image: url('../src/deck/card_7_0.png');
+}
+
+#card80 {
+    background-image: url('../src/deck/card_8_0.png');
+}
+
+#card90 {
+    background-image: url('../src/deck/card_9_0.png');
+}
+
+#card100 {
+    background-image: url('../src/deck/card_10_0.png');
+}
+
+#card110 {
+    background-image: url('../src/deck/card_11_0.png');
+}
+
+#card120 {
+    background-image: url('../src/deck/card_12_0.png');
+}
+
+#card130 {
+    background-image: url('../src/deck/card_13_0.png');
+}
+
+#card140 {
+    background-image: url('../src/deck/card_14_0.png');
+}
+
+#card61 {
+    background-image: url('../src/deck/card_6_1.png');
+}
+
+#card71 {
+    background-image: url('../src/deck/card_7_1.png');
+}
+
+#card81 {
+    background-image: url('../src/deck/card_8_1.png');
+}
+
+#card91 {
+    background-image: url('../src/deck/card_9_1.png');
+}
+
+#card101 {
+    background-image: url('../src/deck/card_10_1.png');
+}
+
+#card111 {
+    background-image: url('../src/deck/card_11_1.png');
+}
+
+#card121 {
+    background-image: url('../src/deck/card_12_1.png');
+}
+
+#card131 {
+    background-image: url('../src/deck/card_13_1.png');
+}
+
+#card141 {
+    background-image: url('../src/deck/card_14_1.png');
+}
+
+#card62 {
+    background-image: url('../src/deck/card_6_2.png');
+}
+
+#card72 {
+    background-image: url('../src/deck/card_7_2.png');
+}
+
+#card82 {
+    background-image: url('../src/deck/card_8_2.png');
+}
+
+#card92 {
+    background-image: url('../src/deck/card_9_2.png');
+}
+
+#card102 {
+    background-image: url('../src/deck/card_10_2.png');
+}
+
+#card112 {
+    background-image: url('../src/deck/card_11_2.png');
+}
+
+#card122 {
+    background-image: url('../src/deck/card_12_2.png');
+}
+
+#card132 {
+    background-image: url('../src/deck/card_13_2.png');
+}
+
+#card142 {
+    background-image: url('../src/deck/card_14_2.png');
+}
+
+#card63 {
+    background-image: url('../src/deck/card_6_3.png');
+}
+
+#card73 {
+    background-image: url('../src/deck/card_7_3.png');
+}
+
+#card83 {
+    background-image: url('../src/deck/card_8_3.png');
+}
+
+#card93 {
+    background-image: url('../src/deck/card_9_3.png');
+}
+
+#card103 {
+    background-image: url('../src/deck/card_10_3.png');
+}
+
+#card113 {
+    background-image: url('../src/deck/card_11_3.png');
+}
+
+#card123 {
+    background-image: url('../src/deck/card_12_3.png');
+}
+
+#card133 {
+    background-image: url('../src/deck/card_13_3.png');
+}
+
+#card143 {
+    background-image: url('../src/deck/card_14_3.png');
+}
+
+/* @media screen and (max-width: 1059px) {
+
+    .myHend,
+    .enHend{
+        display: inline;
+    }
+
+    .centerCard {
+        display: block;
+    }
+
+    .fieldDiv {
+        display: block;
+    }
+
+    .fieldCards {
+        display: block;
+    }
+
+    .main {
+        display: block;
+    }
+} */

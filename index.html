@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <title>Game</title>
+</head>
+
+<body>
+    <div class="startButtons" id="startButtons">
+        <div class="mainStartButton" id="hideStartButton" onclick="getStarted()">Start Game</div>
+        <a class="mainStartButton" id="hideRulesButton" href="rules.html">Rules</a>
+
+    </div>
+    <div class="modalStart" id="modalStart">
+        <div class="modalContentStart">
+            <span class="closeModal" onclick="closeModal()">&times;</span>
+            <div class="rulesList" id="rulesList" style="display: none;">Rules</div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="statsDiv">
+                <div id="myScore">My points: <span id="myScoreValue">0</span></div>
+                <div id="selectedSuit"><span id="suitIcon"></span></div>
+                <div><button id="whooseTurn" style="display: none;" onclick="switchTurn()">Switch turn</button></div>
+                <div id="enScore">Opponent's points: <span id="enScoreValue">0</span></div>
+        </div>
+
+        <div class="buttonDiv">
+            <button id="myButtonTakeSeven" style="visibility: hidden;" onclick="myTakeSeven()">Take cards</button>
+            <button id="enButtonTakeSeven" style="visibility: hidden;" onclick="enTakeSeven()">Take cards</button>
+        </div>
+        <div class="fieldDiv">
+            <div class="myHend" id="myHand"></div>
+            <div class="centerCard">
+                <div class="card" id="cardBackUrl" style="display: none;"></div>
+                <div class="fieldCards">
+                    <div class="field" id="field"></div>
+                </div>
+            </div>
+            <div class="enHend" id="enHand"></div>
+        </div>
+        <div id="suitChoosing" class="modal" style="display:none;">
+            <div class="modalContent">
+                <p>Choose your suit:</p>
+                <select id="select">
+                    <option value="0">Hearts &#9829;</option>
+                    <option value="1">Diamonds &#9830;</option>
+                    <option value="2">Spades &#9824;</option>
+                    <option value="3">Clubs &#9827;</option>
+                </select>
+                <br>
+                <button class="saveYourChoice" onclick="saveYourChoice()">Choose suit</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="js/script.js"></script>
+
+</html>
